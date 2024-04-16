@@ -12,6 +12,7 @@ async def cmd_start(message: types.Message):
     await message.answer("Добро пожаловать!", reply_markup=builder.as_markup(resize_keyboard=True))        
 
 @DisPatch.message(F.text == 'Начать квиз')
+@DisPatch.message(Command("quiz"))
 async def cmd_quiz(message: types.Message):
     await message.answer("Давайте начнем квиз!", reply_markup=types.ReplyKeyboardRemove())
     await quiz.quiz_start(message)
